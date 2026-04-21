@@ -1,15 +1,25 @@
+/* =========================================
+   SERVICES - 100% VISIBLE SIN SCROLL (AJUSTE VH)
+   ========================================= */
 .services {
-    padding: 5rem 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2vh clamp(1.5rem, 8%, 6rem);
+    min-height: calc(100vh - 160px);
+    max-width: 1600px;
+    margin: 0 auto;
+    box-sizing: border-box;
     background-color: #fafafa;
 }
 
 .services-header {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 4vh;
 }
 
 .services-header h2 {
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 4vw, 2.8rem);
     color: #111111;
     font-weight: 300;
 }
@@ -20,23 +30,30 @@
 
 .services-header p {
     color: #666666;
-    margin-top: 1rem;
-    font-size: 1.1rem;
+    margin: 1vh auto 0;
+    font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+    max-width: 60ch;
+    line-height: 1.5;
 }
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: clamp(1.5rem, 2.5vw, 2.5rem);
+    width: 100%;
 }
 
 .service-card {
     background-color: #ffffff;
-    padding: 3rem 2rem;
+    padding: clamp(2rem, 4vh, 3rem) 1.8rem;
     border: 1px solid #eaeaea;
     transition: all 0.3s ease;
     position: relative;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
 }
 
 .service-card:hover {
@@ -45,17 +62,22 @@
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
 }
 
+.service-card:focus-visible {
+    outline: 2px solid #d90429;
+    outline-offset: 4px;
+}
+
 .service-icon {
-    font-size: 1.5rem;
+    font-size: clamp(1.3rem, 1.8vw, 1.6rem);
     color: #e0e0e0;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2vh;
     font-weight: 300;
     letter-spacing: 2px;
 }
 
 .service-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+    font-size: clamp(1.3rem, 2vw, 1.6rem);
+    margin-bottom: 1vh;
     color: #111111;
 }
 
@@ -63,7 +85,7 @@
     width: 40px;
     height: 2px;
     background-color: #d90429;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2vh;
     transition: width 0.3s ease;
 }
 
@@ -74,11 +96,39 @@
 .service-card p {
     color: #666666;
     line-height: 1.6;
-    font-size: 0.95rem;
+    font-size: clamp(0.85rem, 1.2vw, 0.95rem);
+    flex-grow: 1;
+}
+
+@media (max-width: 968px) {
+    .services {
+        padding: 4vh 1.5rem;
+        min-height: auto;
+    }
+
+    .services-header {
+        margin-bottom: 3vh;
+    }
+
+    .service-card {
+        padding: 2rem 1.5rem;
+    }
 }
 
 @media (max-width: 480px) {
+    .services {
+        padding: 3vh 1.2rem;
+    }
+
     .services-header h2 {
         font-size: 1.8rem;
+    }
+
+    .services-grid {
+        gap: 1.2rem;
+    }
+
+    .service-card {
+        padding: 1.8rem 1.3rem;
     }
 }

@@ -1,36 +1,35 @@
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import '../styles/Services.css';
 
 export function Services() {
-    const navigate = useNavigate();
-
     return (
         <section className="services page-transition">
             <div className="services-header">
                 <h2>Nuestros <span>Servicios</span></h2>
+                <p>Soluciones integrales para transformar tu hogar, local o proyecto desde el diseño hasta la entrega de llaves.</p>
             </div>
 
             <div className="services-grid">
-                <div className="service-card" onClick={() => navigate('/servicios/reformas')}>
+                <Link to="/servicios/reformas" className="service-card">
                     <div className="service-icon">01</div>
                     <h3>Reformas</h3>
                     <div className="red-line"></div>
                     <p>Haz clic para ver nuestros proyectos y metodología.</p>
-                </div>
+                </Link>
 
-                <div className="service-card" onClick={() => navigate('/servicios/obra-nueva')}>
+                <Link to="/servicios/obra-nueva" className="service-card">
                     <div className="service-icon">02</div>
                     <h3>Obra Nueva</h3>
                     <div className="red-line"></div>
                     <p>Construcción desde cero con diseño vanguardista.</p>
-                </div>
+                </Link>
 
-                <div className="service-card" onClick={() => navigate('/servicios/materiales')}>
+                <Link to="/servicios/materiales" className="service-card">
                     <div className="service-icon">03</div>
                     <h3>Venta de Materiales</h3>
                     <div className="red-line"></div>
                     <p>Conoce nuestro showroom y catálogo de materiales.</p>
-                </div>
+                </Link>
             </div>
         </section>
     );

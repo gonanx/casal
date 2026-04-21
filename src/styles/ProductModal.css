@@ -1,0 +1,176 @@
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 2rem;
+    animation: fadeIn 0.3s ease;
+    overflow-y: auto;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.modal-content {
+    background-color: #ffffff;
+    max-width: 1000px;
+    width: 100%;
+    max-height: 90vh;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    animation: slideUp 0.3s ease;
+    margin: auto;
+    overflow: hidden;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    width: 36px;
+    height: 36px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: 0.3s;
+}
+
+.modal-close:hover {
+    background: #d90429;
+    color: #fff;
+}
+
+.modal-visual {
+    background-color: #fafafa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    min-height: 400px;
+}
+
+.modal-image-placeholder {
+    width: 100%;
+    aspect-ratio: 1/1;
+    background-color: #f0f0f0;
+}
+
+.modal-info {
+    padding: 3rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    max-height: 90vh;
+}
+
+.modal-info .tag {
+    align-self: flex-start;
+}
+
+.modal-info h2 {
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: #111;
+    margin: 0.8rem 0 0.5rem;
+}
+
+.modal-price {
+    font-size: 1.3rem;
+    color: #d90429;
+    font-weight: 400;
+    margin-bottom: 2rem;
+}
+
+.modal-section {
+    margin-bottom: 1.5rem;
+}
+
+.modal-section h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #111;
+    margin-bottom: 0.6rem;
+    font-weight: 400;
+}
+
+.modal-section p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+.btn-add-cart {
+    margin-top: auto;
+    background-color: #d90429;
+    color: #ffffff;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    letter-spacing: 1px;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    font-family: inherit;
+}
+
+.btn-add-cart:hover {
+    background-color: #b00322;
+}
+
+@media (max-width: 768px) {
+    .modal-overlay {
+        padding: 0;
+    }
+
+    .modal-content {
+        grid-template-columns: 1fr;
+        max-height: 100vh;
+        height: 100vh;
+    }
+
+    .modal-info {
+        padding: 2rem 1.5rem;
+        max-height: none;
+    }
+
+    .modal-visual {
+        padding: 1rem;
+        min-height: auto;
+    }
+}

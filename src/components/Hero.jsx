@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/Hero.css';
 import foto1 from '../assets/img/img-1.jpg';
 import foto2 from '../assets/img/img-2.jpg';
@@ -10,6 +11,7 @@ const images = [foto1, foto2, foto3, foto4, foto5];
 
 export function Hero() {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -28,7 +30,9 @@ export function Hero() {
                     creando espacios luminosos y funcionales. Descubre nuestro
                     showroom y elige los mejores materiales para tu próximo proyecto.
                 </p>
-                <button className="btn-primary">Solicitar Presupuesto</button>
+                <button className="btn-primary" onClick={() => navigate('/contacto')}>
+                    Solicitar Presupuesto
+                </button>
             </div>
 
             <div className="hero-image-container">
@@ -38,6 +42,7 @@ export function Hero() {
                         src={img}
                         alt={`Proyecto ${index + 1}`}
                         className={index === currentIndex ? 'hero-img active' : 'hero-img'}
+                        loading={index === 0 ? 'eager' : 'lazy'}
                     />
                 ))}
             </div>

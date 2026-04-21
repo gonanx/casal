@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { Carousel } from '../../components/Carousel';
 import '../../styles/ServiceDetail.css';
-
 import foto12 from '../../assets/img/img-12.jpg';
 import foto13 from '../../assets/img/img-13.jpg';
 import foto14 from '../../assets/img/img-14.jpg';
@@ -9,28 +9,9 @@ import foto15 from '../../assets/img/img-15.jpeg';
 const images = [foto12, foto13, foto14, foto15];
 
 export function MaterialesDetalle() {
-    const [currentIndex, setCurrentIndex] = useState(0);
-
-    // Deslizamiento automático cada 5 segundos
-    useEffect(() => {
-        const interval = setInterval(() => {
-            nextSlide();
-        }, 5000);
-        return () => clearInterval(interval);
-    }, [currentIndex]);
-
-    const nextSlide = () => {
-        setCurrentIndex((prev) => (prev + 1) % images.length);
-    };
-
-    const prevSlide = () => {
-        setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
-    };
-
     return (
         <div className="service-detail-page page-transition">
             <section className="detail-split-container">
-                {/* Columna Izquierda: Texto Compacto */}
                 <div className="detail-text-side">
                     <header className="detail-header">
                         <h1>Venta de <span>Materiales</span></h1>
@@ -47,37 +28,17 @@ export function MaterialesDetalle() {
                     </div>
                 </div>
 
-                {/* Columna Derecha: Carrusel Compacto */}
                 <div className="detail-visual-side">
-                    <div className="mini-carousel">
-                        <div className="carousel-window">
-                            {images.map((img, index) => (
-                                <img
-                                    key={index}
-                                    src={img}
-                                    alt={`Muestra de Material ${index + 1}`}
-                                    className={index === currentIndex ? 'carousel-img active' : 'carousel-img'}
-                                />
-                            ))}
-
-                            {/* Flechas de navegación */}
-                            <button className="carousel-arrow prev" onClick={prevSlide}>&#10094;</button>
-                            <button className="carousel-arrow next" onClick={nextSlide}>&#10095;</button>
-                        </div>
-
-                        {/* Indicadores (puntos) */}
-                        <div className="carousel-dots">
-                            {images.map((_, index) => (
-                                <span
-                                    key={index}
-                                    className={`dot ${index === currentIndex ? 'active' : ''}`}
-                                    onClick={() => setCurrentIndex(index)}
-                                ></span>
-                            ))}
-                        </div>
-                    </div>
+                    <Carousel images={images} alt="Muestra de Material" />
                 </div>
             </section>
+
+            <div className="next-service-wrapper">
+                <Link to="/servicios/obra-nueva" className="nav-block prev">
+                    <span className="nav-label">Servicio Anterior</span>
+                    <span className="nav-title"><span className="arrow">&#10229;</span> Obra Nueva</span>
+                </Link>
+            </div>
         </div>
     );
 }

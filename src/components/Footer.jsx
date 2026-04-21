@@ -4,7 +4,6 @@ export function Footer() {
     return (
         <footer className="footer">
 
-            {/* Redes Sociales con SVGs integrados */}
             <div className="footer-social">
                 <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
@@ -19,10 +18,10 @@ export function Footer() {
 
             <div className="footer-bottom">
                 <div className="footer-legal">
-                    <a href="#">Configuración de cookies</a>
-                    <a href="#">Política de Privacidad y Cookies</a>
-                    <a href="#">Condiciones de Compra</a>
-                    <a href="#">Gestión de la Privacidad</a>
+                    <button type="button">Configuración de cookies</button>
+                    <button type="button">Política de Privacidad y Cookies</button>
+                    <button type="button">Condiciones de Compra</button>
+                    <button type="button">Gestión de la Privacidad</button>
                 </div>
                 <p>&copy; {new Date().getFullYear()} Reformas CASAL. Todos los derechos reservados.</p>
             </div>

@@ -18,13 +18,21 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    /* [cite: 915] */
     font-weight: 300;
-    /* [cite: 916] */
     padding-top: 65px;
-    /* [cite: 917] */
     overflow-x: hidden;
-    /* Crucial para que el deslizamiento lateral no cree barras de scroll */
+}
+
+@media (max-width: 968px) {
+    body {
+        padding-top: 58px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding-top: 54px;
+    }
 }
 
 /* =========================================
@@ -37,33 +45,26 @@ h4,
 h5,
 h6 {
     font-weight: 400;
-    /* [cite: 926] */
     color: #111111;
-    /* [cite: 928] */
 }
 
 /* =========================================
    ANIMACIÓN DE TRANSICIÓN HORIZONTAL (IZQ A DER)
    ========================================= */
-
 @keyframes pageSlideIn {
     from {
         opacity: 0;
         transform: translateX(-30px);
-        /* Empieza desplazada a la izquierda */
     }
 
     to {
         opacity: 1;
         transform: translateX(0);
-        /* Llega a su posición original */
     }
 }
 
-/* Clase para aplicar al contenedor principal de cada página (.jsx) */
 .page-transition {
     width: 100%;
     animation: pageSlideIn 0.5s ease-out forwards;
     will-change: transform, opacity;
-    /* Optimiza el rendimiento de la animación */
 }

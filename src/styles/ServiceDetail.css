@@ -1,19 +1,24 @@
 /* =========================================
-   ESTILOS COMPACTOS (LÍNEA CASAL)
+   ESTILOS COMPACTOS (VISIBILIDAD 100% ZOOM)
    ========================================= */
 .service-detail-page {
-    padding: 4rem 10% 2rem 10%;
-    /* Márgenes reducidos para ver el footer */
+    padding: 2.5rem clamp(1.5rem, 8%, 6rem) 1.5rem;
     background-color: #ffffff;
+    min-height: calc(100vh - 160px);
+    max-width: 1600px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .detail-header h1 {
-    font-size: 2.2rem;
-    /* Tamaño reducido */
-    margin-bottom: 0.8rem;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    margin-bottom: 0.5rem;
     font-weight: 300;
     color: #111111;
-    line-height: 1.1;
+    line-height: 1.15;
 }
 
 .detail-header h1 span {
@@ -22,12 +27,12 @@
 }
 
 .subtitle {
-    font-size: 1rem;
-    /* Texto más pequeño */
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
     color: #666666;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
     font-weight: 300;
-    line-height: 1.4;
+    line-height: 1.5;
+    max-width: 52ch;
 }
 
 /* =========================================
@@ -35,12 +40,10 @@
    ========================================= */
 .detail-split-container {
     display: flex;
-    align-items: flex-start;
-    /* Alineado arriba para optimizar espacio */
+    align-items: center;
     justify-content: space-between;
-    gap: 3.5rem;
-    /* Espacio de separación reducido */
-    margin-top: 1rem;
+    gap: clamp(2rem, 4vw, 4rem);
+    margin-top: 0.5rem;
 }
 
 .detail-text-side {
@@ -54,9 +57,8 @@
 }
 
 .detail-main-text h3 {
-    font-size: 1.4rem;
-    /* H3 más discreto */
-    margin-bottom: 1rem;
+    font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+    margin-bottom: 0.8rem;
     color: #111111;
     font-weight: 400;
 }
@@ -64,103 +66,91 @@
 .detail-main-text p {
     color: #666666;
     line-height: 1.6;
-    font-size: 0.95rem;
-    /* Párrafos más compactos */
+    font-size: clamp(0.88rem, 1.3vw, 0.95rem);
     font-weight: 300;
+    max-width: 52ch;
 }
 
 /* =========================================
-   CARRUSEL REDIMENSIONADO
+   NAVEGACIÓN SECUENCIAL
    ========================================= */
-.mini-carousel {
-    position: relative;
+.next-service-wrapper {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eeeeee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
 }
 
-.carousel-window {
-    position: relative;
-    height: 380px;
-    /* Reducido de 550px a 380px para subir el footer */
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    background-color: #fafafa;
+.nav-block {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    transition: transform 0.3s ease;
 }
 
-.carousel-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    transition: opacity 0.8s ease-in-out;
+.nav-block.prev {
+    align-items: flex-start;
+    text-align: left;
+    margin-right: auto;
 }
 
-.carousel-img.active {
-    opacity: 1;
+.nav-block.next {
+    align-items: flex-end;
+    text-align: right;
+    margin-left: auto;
 }
 
-/* Flechas Minimalistas */
-.carousel-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.9);
-    border: none;
-    width: 35px;
-    height: 35px;
+.nav-label {
+    font-size: 0.75rem;
+    color: #999999;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.4rem;
+}
+
+.nav-title {
+    font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+    color: #111111;
+    font-weight: 300;
     display: flex;
     align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 10;
-    font-size: 0.9rem;
-    transition: 0.3s;
-    color: #111111;
+    gap: 0.8rem;
+    transition: color 0.3s ease;
 }
 
-.carousel-arrow:hover {
-    background: #d90429;
-    color: #ffffff;
+.nav-block:hover .nav-title {
+    color: #d90429;
 }
 
-.carousel-arrow.prev {
-    left: 0;
+.nav-block.prev:hover {
+    transform: translateX(-8px);
 }
 
-.carousel-arrow.next {
-    right: 0;
-}
-
-/* Indicadores Compactos */
-.carousel-dots {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 1rem;
-}
-
-.dot {
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: #e0e0e0;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.dot.active {
-    background: #d90429;
+.nav-block.next:hover {
+    transform: translateX(8px);
 }
 
 /* =========================================
    RESPONSIVO
    ========================================= */
+@media (max-width: 1200px) {
+    .detail-text-side {
+        max-width: 50%;
+    }
+}
+
 @media (max-width: 968px) {
+    .service-detail-page {
+        padding: 2.5rem 1.5rem;
+        min-height: auto;
+    }
+
     .detail-split-container {
         flex-direction: column;
-        gap: 2rem;
+        gap: 2.5rem;
     }
 
     .detail-text-side {
@@ -168,7 +158,48 @@
         text-align: center;
     }
 
-    .carousel-window {
-        height: 300px;
+    .subtitle,
+    .detail-main-text p {
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .next-service-wrapper {
+        flex-direction: column;
+        gap: 1.2rem;
+        align-items: center;
+        margin-top: 2.5rem;
+    }
+
+    .nav-block.prev,
+    .nav-block.next {
+        align-items: center;
+        text-align: center;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .nav-block.prev:hover,
+    .nav-block.next:hover {
+        transform: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .service-detail-page {
+        padding: 2rem 1.2rem;
+    }
+
+    .detail-header h1 {
+        font-size: 1.7rem;
+    }
+
+    .nav-title {
+        font-size: 1rem;
+    }
+
+    .nav-label {
+        font-size: 0.7rem;
     }
 }
