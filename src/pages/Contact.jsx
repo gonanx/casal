@@ -1,3 +1,5 @@
+import '../styles/Contact.css';
+
 export function Contact() {
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -5,7 +7,7 @@ export function Contact() {
     };
 
     return (
-        <section className="contact-page">
+        <section className="contact-page page-transition">
             <div className="contact-header">
                 <h2>Solicita tu <span>Presupuesto</span></h2>
                 <p>Cuéntanos sobre tu proyecto o duda. Te responderemos en menos de 24 horas.</p>
@@ -42,5 +44,5 @@ export function Contact() {
                 </form>
             </div>
         </section>
-    )
+    );
 }

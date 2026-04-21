@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import '../styles/Store.css';
 
 const productsData = [
     { id: 1, name: 'Suelo Cerámico Roble', tag: 'Tienda Física', price: '24.90€/m²' },
@@ -17,7 +18,7 @@ export function Store() {
         : productsData.filter(p => p.tag === filter);
 
     return (
-        <section className="store-section" id="tienda">
+        <section className="store-section page-transition" id="tienda">
             <aside className="sidebar">
                 <h3>Filtrar por</h3>
                 <ul>

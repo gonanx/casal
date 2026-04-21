@@ -8,7 +8,7 @@ import { Contact } from './pages/Contact'
 import { Reformas } from './pages/services/Reformas'
 import { ObraNueva } from './pages/services/ObraNueva'
 import { MaterialesDetalle } from './pages/services/MaterialesDetalle'
-import './styles/App.css'
+import './styles/index.css'
 
 function App() {
   return (

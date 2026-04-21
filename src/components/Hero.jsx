@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
+import '../styles/Hero.css';
+import foto1 from '../assets/img/img-1.jpg';
+import foto2 from '../assets/img/img-2.jpg';
+import foto3 from '../assets/img/img-3.jpg';
+import foto4 from '../assets/img/img-4.jpg';
+import foto5 from '../assets/img/img-5.jpg';
 
-const images = [
-    "https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&q=80&w=1200", // Salón
-    "https://images.unsplash.com/photo-1556912176-12bb89db2c50?auto=format&fit=crop&q=80&w=1200", // Cocina Minimalista (NUEVA)
-    "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&q=80&w=1200"  // Interior Moderno
-];
+const images = [foto1, foto2, foto3, foto4, foto5];
 
 export function Hero() {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -18,7 +20,7 @@ export function Hero() {
     }, []);
 
     return (
-        <section className="hero">
+        <section className="hero page-transition">
             <div className="hero-content">
                 <h1>Diseño y construcción de <span>espacios únicos</span></h1>
                 <p>

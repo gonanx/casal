@@ -1,10 +1,11 @@
 import { useNavigate } from 'react-router-dom';
+import '../styles/Services.css';
 
 export function Services() {
     const navigate = useNavigate();
 
     return (
-        <section className="services">
+        <section className="services page-transition">
             <div className="services-header">
                 <h2>Nuestros <span>Servicios</span></h2>
             </div>

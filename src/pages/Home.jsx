@@ -1,9 +1,9 @@
-import { Hero } from '../components/Hero'
+import { Hero } from '../components/Hero';
 
 export function Home() {
     return (
-        <main>
+        <main className="page-transition">
             <Hero />
         </main>
-    )
+    );
 }
